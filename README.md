@@ -115,5 +115,4 @@ Introduction to concurrency
 
 Secure coding practices
 
-Performance profiling
 
