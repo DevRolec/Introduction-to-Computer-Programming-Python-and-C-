@@ -142,8 +142,7 @@ gcc hello.c -o hello
 ./hello
 ```
 ---
-## Week 2:
-📘 Lesson: Data Types, Variables & Expressions in C
+## 📘 Lesson: Data Types, Variables & Expressions in C
 🧠 Objectives
 By the end of this lesson, you will:
 
@@ -175,8 +174,7 @@ short, long, and long long offer size variations.
 Use sizeof() to check memory size of types.
 
 c
-Copy
-Edit
+```
 #include <stdio.h>
 
 int main() {
@@ -189,6 +187,7 @@ int main() {
     printf("Size of char: %lu bytes\n", sizeof(ch));
     return 0;
 }
+```
 ## 2. 📦 Variables & Expressions
 ✅ Declaring Variables
 ```
