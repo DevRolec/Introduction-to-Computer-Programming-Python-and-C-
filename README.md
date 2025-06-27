@@ -142,13 +142,165 @@ gcc hello.c -o hello
 ./hello
 ```
 ---
-## Week 2: Data Types, Variables & Expressions
-Primitive types, strings, arrays, memory model
+## Week 2:
+📘 Lesson: Data Types, Variables & Expressions in C
+🧠 Objectives
+By the end of this lesson, you will:
 
-Strong vs. weak typing
+Understand primitive and derived data types in C
 
-Immutable vs. mutable data
+Declare and use variables correctly
 
+Work with strings and arrays
+
+Grasp how memory works in C
+
+Understand C’s typing system
+
+Learn the concept of mutability in C
+
+1. 🧱 Primitive Data Types in C
+These are the fundamental building blocks in C.
+
+Data Type	Size (on 64-bit)	Example	Description
+int	4 bytes	int x = 10;	Integer numbers
+float	4 bytes	float pi = 3.14;	Single-precision decimal
+double	8 bytes	double g = 9.81;	Double-precision decimal
+char	1 byte	char c = 'A';	Single character
+void	0 bytes	Used to define functions that return nothing	
+
+⚠️ Note:
+short, long, and long long offer size variations.
+
+Use sizeof() to check memory size of types.
+
+c
+Copy
+Edit
+#include <stdio.h>
+
+int main() {
+    int x = 5;
+    float f = 3.14;
+    char ch = 'Z';
+
+    printf("Size of int: %lu bytes\n", sizeof(x));
+    printf("Size of float: %lu bytes\n", sizeof(f));
+    printf("Size of char: %lu bytes\n", sizeof(ch));
+    return 0;
+}
+## 2. 📦 Variables & Expressions
+✅ Declaring Variables
+```
+int age = 25;
+float salary = 45000.75;
+char grade = 'B';
+```
+➕ Expressions
+```
+int a = 5, b = 3;
+int sum = a + b;
+Use +, -, *, /, % for arithmetic, and ==, !=, <, > for comparisons.
+```
+3. 🧵 Strings in C
+C does not have a string type. Strings are character arrays ending with '\0' (null terminator).
+
+✅ Declare a string:
+```
+char name[] = "Alice";
+```
+✅ Or manually:
+```
+char name[] = {'A', 'l', 'i', 'c', 'e', '\0'};
+```
+✅ Print string:
+```
+printf("Name: %s\n", name);
+```
+4. 📚 Arrays in C
+Arrays store multiple values of the same type.
+
+```
+int scores[5] = {90, 80, 70, 60, 50};
+```
+Access using index:
+```
+printf("%d\n", scores[0]); // 90
+```
+Update:
+```
+scores[1] = 85;
+⚠️ C does not check array bounds — accessing out-of-range elements may cause bugs.
+```
+
+5. 🧠 Memory Model in C
+C variables are stored in memory locations (RAM).
+
+Each variable occupies a contiguous block of memory.
+
+Use pointers to access and manipulate memory directly.
+```
+int x = 10;
+int *ptr = &x;  // Pointer to x
+
+printf("Value: %d\n", *ptr);     // 10
+printf("Address: %p\n", ptr);    // Memory address
+```
+6. 🧪 Strong vs. Weak Typing
+C is statically typed: Variable types are declared and checked at compile time.
+
+However, it allows type casting, which makes it weakly typed in some scenarios.
+
+Example:
+```
+int i = 10;
+float f = i; // Implicit conversion
+```
+⚠️ You can force a cast:
+
+```
+float pi = 3.14;
+int approx = (int) pi;  // approx = 3
+```
+⚖️ Summary:
+Feature	C supports?
+Static typing	✅ Yes
+Strong enforcement	❌ No
+Implicit conversions	✅ Yes
+
+7. 🔁 Mutable vs. Immutable Data
+In C:
+Primitive types (int, char, etc.) are mutable.
+
+Strings (as char[]) are mutable, but string literals are immutable.
+```
+char name[] = "John";
+name[0] = 'B';  // OK - modifies array
+
+char *greet = "Hello";
+// greet[0] = 'h'; ❌ - causes segmentation fault (immutable)
+```
+🔍 Recap
+C has primitive types: int, float, char, etc.
+
+Variables must be declared with a type.
+
+Strings are char arrays.
+
+Arrays store collections of values.
+
+C allows low-level memory access via pointers.
+
+It has weak typing behavior via casting.
+
+Strings literals are immutable, arrays are mutable.
+
+📝 Exercises
+1. Declare variables of different types and print their sizes using sizeof().
+2. Create a string and modify a character.
+3. Initialize an integer array and print all elements.
+4. Write an expression using int and float, observe implicit type conversion.
+5. Try modifying a string literal and observe the error.
 🧪 Lab: Type coercion experiments in JS vs. Python
 ---
 ## Week 3: Control Flow & Logic
